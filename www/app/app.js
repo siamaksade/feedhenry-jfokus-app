@@ -19,8 +19,8 @@ myApp.config(function($routeProvider) {
         })
 });
 
-var params = {};
-$fh.forms.init(params, function(err) {
-  if (err) console.error(err);
-  // Forms initialised ok if no error
+/*
+$scope.$on('$routeChangeSuccess', function () {
+  // do something
 });
+*/
