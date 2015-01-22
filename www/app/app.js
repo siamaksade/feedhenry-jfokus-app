@@ -18,3 +18,9 @@ myApp.config(function($routeProvider) {
             controller: 'MainCtrl'
         })
 });
+
+var params = {};
+$fh.forms.init(params, function(err) {
+  if (err) console.error(err);
+  // Forms initialised ok if no error
+});
