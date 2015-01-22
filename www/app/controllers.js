@@ -45,3 +45,19 @@ myApp.controller('MainCtrl', function($scope, $q, fhcloud) {
       }
     };
 });
+
+
+myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
+      $scope.master = {};
+
+     $scope.update = function(user) {
+        $scope.master = angular.copy(user);
+        $scope.messages = 'Sent successully'
+      };
+
+      $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+      };
+
+      $scope.reset();
+});

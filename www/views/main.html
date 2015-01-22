@@ -1,0 +1,22 @@
+<fhheader title="FeedHenry" subtext="QuickStart"></fhheader>
+
+<section id="example">
+    <div ng-controller="SubmitForm">
+        <h3>JFokus Contest</h3>
+
+        <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+
+        <form novalidate class="css-form" novalidate>
+            Name: <input type="text" class="form-control" ng-model="user.name">
+            Email: <input type="text" class="form-control" ng-model="user.email" required />
+            Company: <input type="text" class="form-control" ng-model="user.company">
+            Job Title: <input type="text" class="form-control" ng-model="user.job">
+            <br/>
+            <input type="button" ng-click="reset()" value="Reset" />
+            <input type="submit" ng-click="update(user)" value="Send" />
+        </form>
+        <br>
+    </div>
+</section>
+
+<fhfooter></fhfooter>

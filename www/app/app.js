@@ -14,13 +14,7 @@ myApp.config(function($routeProvider) {
 
     $routeProvider
         .when('/', {
-            templateUrl: 'views/example.html',
+            templateUrl: 'views/main.html',
             controller: 'MainCtrl'
         })
 });
-
-/*
-$scope.$on('$routeChangeSuccess', function () {
-  // do something
-});
-*/
