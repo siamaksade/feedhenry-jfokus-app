@@ -7,13 +7,18 @@ body {
     width: inherit;
     height: inherit;
 }
-#example {
+#leadapp {
     width: 80%;
     height: 470px;
     position: absolute;
     top: 11%;
     left: 10%;
 }
+
+#leadapp h3 {
+    margin-bottom: 30px;
+}
+
 header {
     position: absolute;
     top:0;
