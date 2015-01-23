@@ -51,13 +51,20 @@ myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
       $scope.master = {};
 
      $scope.update = function(user) {
-        $scope.master = angular.copy(user);
-        $scope.messages = 'Sent successully'
-      };
+        // $scope.master = angular.copy(user);
 
-      $scope.reset = function() {
-        $scope.user = angular.copy($scope.master);
-      };
+        $fh.cloud({
+          "path": "/lead", //only the path part of the url, the host will be added automatically
+          "method": "POST",   //all other HTTP methods are supported as well. e.g. HEAD, DELETE, OPTIONS
+          "contentType": "application/json",
+          "data": { "name": user.name, "email": user.email, "company": user.company, "job": user.job}, //data to send to the server
+          "timeout": 25000 // timeout value specified in milliseconds. Default: 60000 (60s)
+        }, function(res) {
+          $scope.messages = 'Sent successully';
 
-      $scope.reset();
+        }, function(msg,err) {
+          // An error occured during the cloud call. Alert some debugging information
+          $scope.messages = 'Failed with error message:' + msg + '. Error properties:' + JSON.stringify(err));
+        });
+      };
 });
