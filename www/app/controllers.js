@@ -51,19 +51,27 @@ myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
       $scope.master = {};
 
      $scope.update = function(user) {
-        console.log(user);
         var defer = $q.defer();
         var promise = defer.promise;
 
         promise.then(function(response){
           if (response.msg != null && typeof(response.msg) !== 'undefined' && response.status == 'success') {
             $scope.messages = 'Registered successully';
+            $scope.messageClass = 'alert-success';
+            $scope.user = {};
 
           } else {
             $scope.messages  = "Error: expected a message from backend.";
+            $scope.messageClass = 'alert-danger';
           }
         }, function(err){
-          $scope.messages = 'Error: ' + JSON.stringify(err);
+          if (err == '') {
+            $scope.messages = 'Error: failed to register due to technical errors';
+          } else {
+            $scope.messages = 'Error: ' + JSON.stringify(err);
+          }
+
+          $scope.messageClass = 'alert-danger';
         });
 
 
@@ -75,4 +83,10 @@ myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
           "timeout": 25000 // timeout value specified in milliseconds. Default: 60000 (60s)
         }, defer.resolve, defer.reject);
       };
+
+      $scope.reset = function() {
+        $scope.user = {};
+      };
+
+      $scope.reset();
 });

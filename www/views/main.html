@@ -4,7 +4,7 @@
     <div ng-controller="SubmitForm">
         <h3>JFokus Contest</h3>
 
-        <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+        <div id="messages" class="alert {{messageClass}}" data-ng-show="messages" data-ng-bind="messages"></div>
 
         <form novalidate class="css-form" novalidate>
             Name: <input type="text" class="form-control" ng-model="user.name">
