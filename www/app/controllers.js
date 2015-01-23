@@ -62,7 +62,7 @@ myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
             $scope.messages  = "Error: expected a message from backend.";
           }
         }, function(err){
-          $scope.messages = 'Error: ' + JSON.stringify(err));
+          $scope.messages = 'Error: ' + JSON.stringify(err);
         });
 
 
