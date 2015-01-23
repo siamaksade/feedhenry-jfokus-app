@@ -51,6 +51,7 @@ myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
       $scope.master = {};
 
      $scope.update = function(user) {
+        console.log(user);
         var defer = $q.defer();
         var promise = defer.promise;
 
@@ -66,8 +67,8 @@ myApp.controller('SubmitForm', function($scope, $q, fhcloud) {
         });
 
 
-        fhcloud.cloud({
-          "path": "lead", //only the path part of the url, the host will be added automatically
+        $fh.cloud({
+          "path": "/lead", //only the path part of the url, the host will be added automatically
           "method": "POST",   //all other HTTP methods are supported as well. e.g. HEAD, DELETE, OPTIONS
           "contentType": "application/json",
           "data": { "name": user.name, "email": user.email, "company": user.company, "job": user.job}, //data to send to the server
