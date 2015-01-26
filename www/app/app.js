@@ -6,8 +6,7 @@ var myApp = angular.module('myApp', ['ngRoute',
     'myApp.directives',
     'myApp.services',
     'myApp.filters',
-    'snap',
-    'fhcloud'
+    'snap'
 ]);
 
 myApp.config(function($routeProvider) {
@@ -15,6 +14,6 @@ myApp.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+            controller: 'SubmitForm'
         })
 });

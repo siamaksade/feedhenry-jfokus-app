@@ -12,8 +12,13 @@
             Company: <input type="text" class="form-control" ng-model="user.company">
             Job Title: <input type="text" class="form-control" ng-model="user.job">
             <br/>
+            <span>{{question.question}}</span>
+            <div class="radio" ng-repeat="(key, value) in question.answers">
+              <label><input type="radio" ng-model="user.answer" value="{{question.id}}:{{key}}"/>{{value}}</label>
+            </div>
+            <br/>
             <input type="button" ng-click="reset()" value="Reset" />
-            <input type="submit" ng-click="update(user)" value="Send" />
+            <input type="submit" ng-click="update(user)" value="Register" />
         </form>
         <br>
     </div>
