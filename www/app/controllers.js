@@ -2,26 +2,11 @@
 
 var myApp = angular.module('myApp.controllers', []);
 
-myApp.controller('SubmitForm', function($scope, $q) {
+var leadController = myApp.controller('LeadForm', function($scope, $q, QuestionService) {
       $scope.master = {};
+      $scope.question = QuestionService.get();
 
-      // get the question
-      $fh.cloud({
-        "path": "/question",
-        "method": "GET",
-        "contentType": "application/json",
-        "data": {},
-        "timeout": 25000
-      }, function(res) {
-        console.log(res);
-        $scope.question = res;
-      }, function(msg,err) {
-        console.log(err)
-      });
-
-      $scope.update = function(user) {
-        console.log(user);
-
+      $scope.register = function(user) {
         var defer = $q.defer();
         var promise = defer.promise;
 
@@ -30,6 +15,7 @@ myApp.controller('SubmitForm', function($scope, $q) {
             $scope.messages = 'Registered successully';
             $scope.messageClass = 'alert-success';
             $scope.user = {};
+            $scope.question = QuestionService.get();
 
           } else {
             $scope.messages  = "Error: expected a message from backend.";

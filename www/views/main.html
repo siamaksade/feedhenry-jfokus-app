@@ -1,8 +1,8 @@
 <fhheader title="FeedHenry" subtext="QuickStart"></fhheader>
 
 <section id="leadapp">
-    <div ng-controller="SubmitForm">
-        <h3>JFokus Contest</h3>
+    <div ng-controller="LeadForm">
+        <h3>JFokus 2015 Contest</h3>
 
         <div id="messages" class="alert {{messageClass}}" data-ng-show="messages" data-ng-bind="messages"></div>
 
@@ -18,7 +18,7 @@
             </div>
             <br/>
             <input type="button" ng-click="reset()" value="Reset" />
-            <input type="submit" ng-click="update(user)" value="Register" />
+            <input type="submit" ng-click="register(user)" value="Register" />
         </form>
         <br>
     </div>
