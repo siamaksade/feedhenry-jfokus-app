@@ -92,3 +92,7 @@ footer > div > small {
 .input-group {
     display: block;
 }
+
+.help-block {
+    color: red;
+}

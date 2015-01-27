@@ -6,22 +6,25 @@
 
         <div id="messages" class="alert {{messageClass}}" data-ng-show="messages" data-ng-bind="messages"></div>
 
-        <form novalidate class="css-form" novalidate>
-            Name: <input type="text" class="form-control" ng-model="user.name">
-            Email: <input type="text" class="form-control" ng-model="user.email" required />
-            Company: <input type="text" class="form-control" ng-model="user.company">
+        <form name="leadForm" novalidate class="css-form">
+            Name*: <input type="text" class="form-control" name="name" ng-model="user.name" required >
+            <p ng-show="leadForm.name.$invalid && !leadForm.name.$pristine" class="help-block">You name is required.</p>
+
+            Email*: <input type="email" name="email" class="form-control" ng-model="user.email" required />
+            <p ng-show="leadForm.email.$invalid && !leadForm.email.$pristine" class="help-block">Enter a valid email.</p>
+
+            Company: <input type="text" class="form-control" ng-model="user.company" >
             Job Title: <input type="text" class="form-control" ng-model="user.job">
+
             <br/>
             <span>{{question.question}}</span>
             <div class="radio" ng-repeat="(key, value) in question.answers">
-              <label><input type="radio" ng-model="user.answer" value="{{question.id}}:{{key}}"/>{{value}}</label>
+              <label><input type="radio" ng-model="user.answer" value="{{question.id}}:{{key}}" ng-required="true" />{{value}}</label>
             </div>
             <br/>
             <input type="button" ng-click="reset()" value="Reset" />
-            <input type="submit" ng-click="register(user)" value="Register" />
+            <input type="submit" ng-click="register(user)" value="Register" ng-disabled="leadForm.$invalid" />
         </form>
         <br>
     </div>
 </section>
-
-<fhfooter></fhfooter>
