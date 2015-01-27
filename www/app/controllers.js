@@ -48,8 +48,7 @@ var leadController = myApp.controller('LeadForm', function($scope, $q, QuestionS
 
       $scope.reset = function() {
         $scope.user = {};
+        $scope.leadForm.$setPristine();
         $scope.question = QuestionService.get();
       };
-
-      $scope.reset();
 });
