@@ -14,7 +14,9 @@ var leadController = myApp.controller('LeadForm', function($scope, $q, QuestionS
           if (response.msg != null && typeof(response.msg) !== 'undefined' && response.status == 'success') {
             $scope.messages = 'Registered successully';
             $scope.messageClass = 'alert-success';
-            $scope.reset();
+            $scope.user = {};
+            $scope.leadForm.$setPristine();
+            $scope.question = QuestionService.get();
 
           } else {
             $scope.messages  = "Error: expected a message from backend.";
@@ -50,5 +52,6 @@ var leadController = myApp.controller('LeadForm', function($scope, $q, QuestionS
         $scope.user = {};
         $scope.leadForm.$setPristine();
         $scope.question = QuestionService.get();
+        $scope.messages = "";
       };
 });
