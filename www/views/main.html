@@ -1,9 +1,7 @@
 <section id="leadapp">
     <div ng-controller="LeadForm">
         <h3>JFokus 2015 Contest</h3>
-
-        <div id="messages" class="alert {{messageClass}}" data-ng-show="messages" data-ng-bind="messages"></div>
-
+        <div class="messages alert {{messageClass}}" ng-show="messagesShow" data-ng-bind="messages"></div>
         <form name="leadForm" novalidate class="css-form">
             <div class="form-group has-feedback" ng-class="{'has-error': leadForm.name.$invalid && !leadForm.name.$pristine}">
                 <label>Name</label>
@@ -29,11 +27,11 @@
 
             <span>{{question.question}}</span>
             <div class="radio" ng-repeat="(key, value) in question.answers">
-              <label><input type="radio" ng-model="user.answer" value="{{question.id}}:{{key}}" ng-required="true" />{{value}}</label>
+              <label><input type="radio" name="answer" ng-model="user.answer" value="{{question.id}}:{{key}}" ng-required="true" />{{value}}</label>
             </div>
-            
+
             <br/>
-            <input type="submit" class="btn btn-primary btn-block btn-lg" ng-click="register(user)" value="Register" ng-disabled="leadForm.$invalid" />
+            <input type="submit" class="btn btn-primary btn-block btn-lg" ng-click="register(user)" value="Register" />
             <input type="button" class="btn btn-danger btn-block btn-lg" ng-click="reset()" value="Reset" />
         </form>
         <br>

@@ -2,6 +2,7 @@
 
 var myApp = angular.module('myApp', ['ngRoute',
     'ngSanitize',
+    "ngAnimate",
     'myApp.controllers',
     'myApp.directives',
     'myApp.services',
