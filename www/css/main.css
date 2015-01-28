@@ -103,19 +103,6 @@ body {
     color: red;
 }
 
-/*
-.messages {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-}
-*/
-/*.messages.ng-hide {
-  display: block!important;
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-*/
 .messages.ng-hide-add, .messages.ng-hide-remove {
   -webkit-transition:all linear 0.5s;
   -moz-transition:all linear 0.5s;
@@ -132,4 +119,14 @@ body {
 .messages.ng-hide-add,
 .messages.ng-hide-remove.ng-hide-remove-active {
   opacity:1;
+}
+
+.ng-dirty input.ng-invalid, input.ng-invalid, textarea.ng-invalid {
+    border-color: #ccc;
+}
+
+.has-error .ng-dirty input.ng-invalid, 
+.has-error input.ng-invalid, 
+.has-error textarea.ng-invalid {
+    border-color: #a94442;
 }
