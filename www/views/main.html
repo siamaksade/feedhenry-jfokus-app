@@ -1,5 +1,3 @@
-<fhheader title="FeedHenry" subtext="QuickStart"></fhheader>
-
 <section id="leadapp">
     <div ng-controller="LeadForm">
         <h3>JFokus 2015 Contest</h3>
@@ -7,23 +5,36 @@
         <div id="messages" class="alert {{messageClass}}" data-ng-show="messages" data-ng-bind="messages"></div>
 
         <form name="leadForm" novalidate class="css-form">
-            Name*: <input type="text" class="form-control" name="name" ng-model="user.name" required >
-            <p ng-show="leadForm.name.$invalid && !leadForm.name.$pristine" class="help-block">You name is required.</p>
+            <div class="form-group has-feedback" ng-class="{'has-error': leadForm.name.$invalid && !leadForm.name.$pristine}">
+                <label>Name</label>
+                <input type="text" class="form-control {}" name="name" ng-model="user.name" required placeholder="Required" autocomplete="off" />
+                <!-- <span ng-show="leadForm.name.$invalid && !leadForm.name.$pristine" class="help-block">You name is required.</span> -->
+            </div>
 
-            Email*: <input type="email" name="email" class="form-control" ng-model="user.email" required />
-            <p ng-show="leadForm.email.$invalid && !leadForm.email.$pristine" class="help-block">Enter a valid email.</p>
+            <div class="form-group has-feedback" ng-class="{'has-error': leadForm.email.$invalid && !leadForm.email.$pristine}">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="user.email" required placeholder="Required" autocomplete="off" />
+                <!-- <span ng-show="leadForm.email.$invalid && !leadForm.email.$pristine" class="help-block">Enter a valid email.</span> -->
+            </div>
 
-            Company: <input type="text" class="form-control" ng-model="user.company" >
-            Job Title: <input type="text" class="form-control" ng-model="user.job">
+            <div class="form-group has-feedback">
+                <label>Company</label>
+                <input type="text" class="form-control" ng-model="user.company" autocomplete="off" />
+            </div>
 
-            <br/>
+            <div class="form-group has-feedback">
+                <label>Job Title</label>
+                <input type="text" class="form-control" ng-model="user.job" autocomplete="off" />
+            </div>
+
             <span>{{question.question}}</span>
             <div class="radio" ng-repeat="(key, value) in question.answers">
               <label><input type="radio" ng-model="user.answer" value="{{question.id}}:{{key}}" ng-required="true" />{{value}}</label>
             </div>
+            
             <br/>
-            <input type="button" ng-click="reset()" value="Reset" />
-            <input type="submit" ng-click="register(user)" value="Register" ng-disabled="leadForm.$invalid" />
+            <input type="submit" class="btn btn-primary btn-block btn-lg" ng-click="register(user)" value="Register" ng-disabled="leadForm.$invalid" />
+            <input type="button" class="btn btn-danger btn-block btn-lg" ng-click="reset()" value="Reset" />
         </form>
         <br>
     </div>

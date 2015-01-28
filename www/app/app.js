@@ -6,7 +6,8 @@ var myApp = angular.module('myApp', ['ngRoute',
     'myApp.directives',
     'myApp.services',
     'myApp.filters',
-    'snap'
+    'snap',
+    "mobile-angular-ui"
 ]);
 
 myApp.config(function($routeProvider) {
